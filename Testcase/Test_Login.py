@@ -1,12 +1,13 @@
 import pytest
 from selenium import webdriver
-from pageObjects.LoginPage import LoginPage
+from pageobjects.loginpage import LoginPage
+from utilities.readproperties import ReadConfig
 
 class Test_001_Login:
 
-    baseURL = "https://admin-demo.nopcommerce.com/"
-    username = "admin@yourstore.com"
-    password = "admin"
+    baseURL = ReadConfig.getApplicationURL
+    username = ReadConfig.getUseremail
+    password = ReadConfig.getpassword
 
     def test_homepageTitle(self,setup):
        self.driver= setup
